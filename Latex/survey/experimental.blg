@@ -1,0 +1,24 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: experimental.aux
+The style file: IEEEtran.bst
+Database file #1: ref.bib
+Warning--entry type for "Wibergh_2019" isn't style-file defined
+--line 845 of file ref.bib
+Warning--entry type for "Coq_2019" isn't style-file defined
+--line 891 of file ref.bib
+Warning--entry type for "Angiuli_et_al_2018" isn't style-file defined
+--line 1096 of file ref.bib
+Warning--entry type for "CoqHoTT_2015" isn't style-file defined
+--line 1107 of file ref.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in Appel_2011
+Warning--missing school in Pons_1999
+Warning--empty year in Pons_1999
+Warning--empty year in Awodey_et_al_2013
+Warning--empty booktitle in Paulson_et_al_2015
+Warning--empty journal in Kohlhase_Rabe_2020
+Warning--empty author in QED_Manifesto_1994
+
+Done.
+(There were 11 warnings)

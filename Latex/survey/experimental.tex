@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+%\renewcommand{\familydefault}{\ttdefault}
+%Some packages I commonly use.
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{mathptmx}
+%\usepackage{graphicx}
+%\usepackage{framed}
+%\usepackage[normalem]{ulem}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amssymb}
+%\usepackage{amsfonts}
+%\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{listings}
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
+%\usepackage{flafter}
+\usepackage{float}
+%\usepackage{enumitem}
+%\usepackage{varwidth}
+%\usepackage{natbib}
+% Please add the following required packages to your document preamble:
+%\usepackage[normalem]{ulem}
+%\usepackage{todonotes}
+%\useunder{\uline}{\ul}{}
+
+
+%A bunch of definitions that make my life easier
+\newcommand{\todoF}[2][]{\todo[color=red!25, #1]{#2}}
+\newcommand{\todoINFO}[1]{\todo[color=blue!25]{INFO: #1}}
+\newcommand{\todoIMPORTANT}[1]{\todo[color=red!25]{IMPORTANT: #1}}
+\newcommand{\todoREV}[1]{\todo[color=green!25]{REVIEWED: #1}}
+
+
+
+
+
+
+
+\title{A Survey of Interactive Theorem Proving Systems and Their Practical Aspects in Large-Scale Formal Verification }
+\author{Fariba Khan  \\
+	School of EECS \\
+	Oregon State University \\
+	khanfari@oregonstate.edu
+}
+\date{}
+
+
+\begin{document}
+	
+	
+\maketitle
+
+\begin{abstract}
+	
+Interactive theorem proving (ITP) systems let human and machine work together to build machine-checked formal proofs. Different ITP systems has emerged following different formal foundations of mathematics with their own set of interesting features. These systems are now being widely used in formal verification of large-scale complex systems to increase their reliability, leading to equally large-scale proof development. Consequently, the focus of proof assistant research has been expanded to practical aspects of ITP systems to identify and address domain-specific challenges in large-scale development. This survey organizes existing research on these practical aspects, along with a brief overview of interactive theorem proving systems themselves. It also draws attention to significant challenges and open problems identified by the researchers across literature.\\
+
+\keywords{Proof Assistants, Interactive Theorem Proving, Proof Engineering, Large Scale Verification, Formalization,
+	Formal Verification, Proof Development, Proof Maintenance, Proof Refactoring, Proof Repair, Proof Robustness, Usability.}
+	
+\end{abstract}
+
+
+
+\input{sections/intro} %intro
+\input{sections/overview} %overview
+\input{sections/ITPinLarge} %ITP in large scale
+\input{sections/proofDev} %proof development strategy
+\input{sections/proofMaintain} %proof maintanence over time
+\input{sections/toolingSupport} %tooling
+\input{sections/conclusion} %conclusion
+
+
+
+%\\- Input: file containing the input of the problem. (strip width followed by width and height of the input rectangles).
+%\\- Output: file containing the minimum height of the strip followed by a possible placement of the rectangles for that height. If height and width of any input rectangle doesn't meet the initial constraint of at least one side being smaller than strip width, than just a '-1'.
+%\\- Choice of programming language: C++
+%\\- Library: MiniSAT 
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+
+\end{document}

@@ -1,0 +1,32 @@
+\section{Techniques for Proof Maintenance Over Time}
+\label{sec:maintenance}
+
+Proof changes over time. Not all changes can be predicted to address them through design during development, and some changes, like library updates, are out of proof engineer's control. Maintenance of large-scale proofs, thereby demands automated refactoring and repair techniques to incorporate these changes efficiently. This area of research is still in the initial phase and has lots of open problems and challenges~\cite{Robert_2018}. Ideas from program refactoring and repair can be adapted into proof engineering and exploring that domain can give a head start to new researchers. However, a detail exploration of unique needs from proof engineering's side is needed as well. Here, a few tools that address the above aspects are described. It is worth noting that several of them are still in the development phase, thus have potential to offer more in future.
+
+\subsection{Proof Refactoring} Refactoring, a term coined by Opdyke in his thesis, refers to the semantic preserving transformation for the improvement of software in terms of readability, maintainability, and efficiency~\cite{Opdyke_1992} and can be used in the domain of proof engineering as well. Proof refactoring tools can either refactor proof scripts or proof terms. Levity~\cite{Bourke_et_al_2012} is one of the quite mature proof refactoring tools that were developed to maintain sel4 OS kernel verification project~\cite{Klein_et_al_2014}. This tool moves general lemmas to an optimal position that maximizes its reuse by specialized theorems, and it is based on the idea that lemmas should float upward through theory dependency graph. Using this tool saved them from tens of minutes to even hours worth of required work after moving a single lemma to a new theory file. POLAR~\cite{Dietrich_et_al_2013} is a prototype generic proof script refactoring framework. It supports ten types of default refactoring and can be extended with custom ones. The high-level idea here is to transform theory to graph representation (abstract syntax) to find the appropriate part to refactor and then regain refactored theory from the transformed graph. Their framework is built on the GrGen graph rewriting engine, and it is also generic in terms of proof languages. Another tool, named Tactician~\cite{Adams_2015}, refactors tactic proofs in HOL light. It can fold sequences of tactics into tacticals and unfold tactical into interactive steps that can be utilized for debugging. However, this work is applicable to a small subset of ML family and does not provide a general solution for all tactic based proofs~\cite{Lin_et_al_2016}. 
+
+On the other hand, both refactoring tools, Chick~\cite{Robert_2018} and RefactorAgda~\cite{Wibergh_2019}, operate on proof terms. The former can refactor terms in dependently typed languages like Gallina and the later refactors Agda terms. Chick works with examples, takes the original and partially refactored program and then, uses the difference between them to calculate how the whole program needs to be refactored. They also propagate these calculated changes through the rest of the program. Chick can handle insertion, modification, permutation, and deletion of subterms. Whereas RefactorAgda works on only a small subset of Agda, Baby-Agda but supports many changes including reindentation of files, renaming, function extraction, adding or removing constructor form data types, expression changing refactorings like conversion between explicit and implicit parameters, reordering of function or constructor arguments, and extracting arguments. A full list is provided in the respective paper~\cite{Wibergh_2019}. However, all of these changes are not semantic preserving in contrast to the definition of refactoring and they can instead be classified as repair tools in that sense. 
+
+%below4: https://gupea.ub.gu.se/bitstream/2077/60174/1/gupea_2077_60174_1.pdf
+
+The Coq IDE, CoqPIE~\cite{Roe_Smith_2016} provides some proof script refactoring support from the IDE level such as lemma extraction and replay. In replay, proof scripts before and after modification are parsed into abstract syntax trees and can be updated to incorporate fix like correcting hypothesis references. Lemma extraction can transform subgoals into separate lemmas. More supports can be provided from the IDE level, thus has much room for work in this domain. 
+
+\subsection{Proof Repair} As discussed in previous sections, proofs can break due to any change in the definition or in the theorem specification they depend on. Thus one of the major goals of proof design is to make proof resilient in the face of these changes. However, one can predict so much in advance, thus requires repair tools to adapt proofs to unpredictable changes. A Proof repair tool ideally should be able to automatically create a reusable patch when any change to the specification or definition happens and apply them to fix dependent proofs. There is a Coq plugin, PUMPKIN PATCH~\cite{Ringer_et_al_2018} that can do part of this process. It takes examples patches of how to adapt dependent proofs in response to some change in definition or theorem and then generalizes these example patches into a reusable one. It still cannot apply the patch automatically and depends on example patches. Recently they partnered with Galois, Inc. to add more functionalities to their tool. 
+
+%\todoF{add future works form pumpkin patch paper and chick thesis}
+%\todoF{Galileo if possible}
+
+%GALILEO is a Domain-specific proof repair tool built on Isabelle ~\cite{}.
+%chick thesis:https://escholarship.org/uc/item/9q3490fh#page=69
+
+%below2: Opdyke, W.F.: Refactoring object-oriented frameworks. PhD thesis, Champaign, IL, USA (1992)
+%Bourke:https://www.tbrk.org/papers/cicm2012.pdf
+%below3: file:///C:/Users/farib/Downloads/Understanding_and_maintaining_tactics_graphically_.pdf
+
+%Though it has not been utilized to its full potential yet, there are some tools that can facilitate efficiency of the development as well as can be used as a means of maintenance over time which has been discussed in later in ~\cite{}. Both of the refactoring tools discussed in ~\cite{previous sec} work on proof scripts.
+
+%\point {eg1: data evolution}
+
+
+
+
